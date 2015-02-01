@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -178,12 +178,14 @@
   <p><input type="button" class="tricky-to-find" value="Pop-Up Please!">
 </fieldset></p>
 
+<!-- TODO this does not work.  Should look at tag name -->
+
 <script>
-  var button4 = document.getElementsByTagName("input.tricky-to-find")
-  console.log ("button4 :" + button4);
-  // button4.addEventListener("click", function() {
-  //     alert("made it");
-  // });
+  var button4 = document.getElementsByClassName("tricky-to-find")
+  // console.log ("button4 :" + button4[0]);
+  button4[0].addEventListener("click", function() {
+       alert("made it");
+   });
 </script>
 
 <div class="hint">
@@ -224,7 +226,19 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+  var button5 = document.getElementById("make-todo-list");
+  var emptyList = document.getElementById("empty-todo-list");
+  button5.addEventListener("click", function() {
+    var string = "";
+    // console.log(string);
+    for (i = 1; i < 11; i++){
+      string = string + "<li>" + i + "</li>";
+      console.log(string);
+      emptyList.innerHTML = string;
+    }
+ 
+  });
+
 </script>
 
 <div class="hint">
@@ -251,16 +265,24 @@
 </fieldset>
 
 <script>
+var button6 = document.getElementById("reverse-string-button");
+button6.addEventListener("click", reverseString);
+
 //  Here's a stub of a function you can use!
 
-//  function reverseString() {
-//    var msg = "Porcupines are cute";
+  function reverseString() {
+   var msg = "Porcupines are cute";
+   var reverseString = "";
+   for (i = msg.length-1; i > -1; i--) {
+      reverseString += msg[i];
+   }
+   alert(reverseString);
 //
 //    // do some stuff here to reverse that string into a new variable
 //    var newMsg = "This should be the reversed string";
 //
 //    alert(newMsg);
-//  }
+  }
 
 // Here's a stub of event stuff you could use
 //
